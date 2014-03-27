@@ -17,19 +17,48 @@ module Set1
     end
   end
 
-  def self.find_sum_2(array, sum = 0)
-    if
-      array.empty?
-      false
-    elsif
-      array.include?(0)
-      true
-    elsif
-      array.include?(num) && array.include?(-num)
-      true
-    end
-  end
+def self.find_sum_2(array, sum = 0)
+   if array.empty?
+     false
+   elsif array.include?(0)
+     true
+   else
 
-  def self.find_sum_3(array)
+   array.each do |x|
+     if x < 0
+       if array.include?(x.abs)
+         return true
+       end
+     end
+   end
+
+   array.each do |x|
+   if x + x == 0
+     return true
+   else
+    return false
+   end
+   end
+ end
+end
+
+  def self.find_sum_3(array,sum=0)
+  if array.length == 0
+     return false
+   end
+
+   array.each do |x|
+     array.each do |y|
+       array.each do |z|
+         if (x + y + z == sum)
+           return true
+         end
+       end
+     end
+   end
+     return false
+
+
+
   end
 end
